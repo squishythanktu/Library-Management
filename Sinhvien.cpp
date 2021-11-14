@@ -235,7 +235,6 @@ void Sinhvien::menu_timsach()
     cout << "3. Tro ve menu truoc" << endl;
     cout << "Nhap lua chon cua ban: "; 
     string n; 
-    cin >> n;
     if(n.length()>1)
     {
         cout<<"Lua chon khong hop le. Hay nhap lai...";

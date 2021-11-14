@@ -4,6 +4,7 @@
 #include "Menu.h"
 #include "Phieumuon.h"
 #include<iostream>
+#include <sstream>
 #include<stdio.h>
 #include<stdlib.h>
 #include<fstream>

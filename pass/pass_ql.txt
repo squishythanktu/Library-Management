@@ -1,1 +1,3 @@
-pass
+admin1 newpass
+admin2 pass456
+admin3 pass789

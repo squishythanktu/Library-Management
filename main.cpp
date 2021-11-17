@@ -1,7 +1,6 @@
 #include "Menu.cpp"
 #include "Nguoiquanly.cpp"
 #include "Sinhvien.cpp"
-#include "Phieumuon.cpp"
 #include<iostream>
 using namespace std;
 
@@ -11,3 +10,5 @@ int main(){
 	system("pause");
     return 0;
 }
+
+

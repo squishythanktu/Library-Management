@@ -4,16 +4,48 @@ using namespace std;
 void Menu::menu()
 { 
     fflush(stdin);
-    cout << "\t HE THONG QUAN LY THU VIEN\t" << endl;
-    cout << "Vui long chon tu cach dang nhap: " << endl;
-    cout<< "1.Sinh vien" << endl;
-    cout<< "2.Nguoi quan ly" << endl;
-    cout<< "3.Dong" << endl;
-    cout<< "Nhap lua chon: ";
-    string n; 
-    cin >> n;
+     int i;
+    Goto(34, 3);
+    textcolor(6);
+    cout << "\t        -HE THONG QUAN LY THU VIEN-     \t";
+    textcolor(7);
+    Goto(34,5);cout<<"*";
+    for(int i=0;i<58;i++)
+    {
+        cout<<"*";
+    }
+    cout <<"*";
+    Goto(34, 6); cout << "*";
+    Goto(93,6);cout<<"*";
+    Goto(34,7);cout << "*";
+    cout<<"\t            1. Sinh vien             \t";
+    Goto(93,7);cout<<"*";
+    Goto(34,8); cout << "*";
+    Goto(93,8);cout<<"*";
+    Goto(34,9);cout << "*";
+    cout<<"\t            2. Quan ly             \t";
+    Goto(93,9);cout<<"*";
+    Goto(34,10); cout << "*";
+    Goto(93,10);cout<<"*";
+    Goto(34,11);cout << "*";
+    cout<<"\t            3. Dong             \t";
+    Goto(93,11);cout<<"*";
+    Goto(34,12); cout <<"*";
+    Goto(93,12);cout<<"*";
+    Goto(34,13);cout<<"*";
+    for (int i = 0; i < 58; i++) {
+        cout << "*";
+    }
+    cout << "*";
+    Goto(34,16);
+    cout<<"Vui long chon phuong thuc dang nhap:           \t";
+    string n;
+    Goto(70,16);
+    cin>>n;
     if(n.length()>1)
     {
+        textcolor(4);
+        Goto(34,17);
         cout<<"Lua chon khong hop le. Hay nhap lai...";
         getch();
         system("cls");
@@ -43,9 +75,12 @@ void Menu::menu()
         }
         default:
         {
-            cout<<"Hay chon tu cach dang nhap dung!";
+            textcolor(4);
+            Goto(24,17);cout<<"Hay chon tu cach dang nhap dung!";
+            getch();
             getch();
             system("cls");
+            textcolor(7);
             menu();
             break;
         }

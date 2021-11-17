@@ -9,7 +9,6 @@ Book::Book()
     Tentacgia="";
     Nhaxuatban="";
     Giatien=0;
-    Soluong=0;
 }
 Book::~Book()
 {
@@ -35,14 +34,6 @@ int Book::getGiatien()
 {
     return Giatien;
 }
-int Book::getSoluong()
-{
-    return Soluong;
-}
-void Book::setSoluong(int a)
-{
-    Soluong=a;
-}
 istream& operator >>(istream &in,Book &a){
     cout<<"Nhap ID sach: "; 
     fflush(stdin);
@@ -56,8 +47,8 @@ istream& operator >>(istream &in,Book &a){
     cout<<"Nhap nha xuat ban: "; 
     fflush(stdin);
     getline(in,a.Nhaxuatban);
-    cout<<"Nhap gia tien: ";in >> a.Giatien;
-    cout<<"Nhap so luong: ";in >> a.Soluong;
+    cout<<"Nhap gia tien: ";
+    in >> a.Giatien;
     return in;
 }
 ostream& operator <<(ostream &out,const Book &a){
@@ -66,7 +57,6 @@ ostream& operator <<(ostream &out,const Book &a){
     out<<a.Tentacgia<<endl;
     out<<a.Nhaxuatban<<endl;
     out<<a.Giatien<<endl;
-    out<<a.Soluong<<endl;
     return out;
 }
 
@@ -86,9 +76,6 @@ int Book::getInfo(Book *a){
         getline(Book,line); 
         stringstream getlint(line); //chuyển kiểu string sang int
         getlint >> a[n].Giatien;
-        getline(Book,line);
-        stringstream getint(line);
-        getint >> a[n].Soluong;
         n++;
         continue;
     }
@@ -100,8 +87,7 @@ void Book::display(){
     cout<<setw(30)<<left<<Tensach;
     cout<<setw(30)<<left<<Tentacgia;
     cout<<setw(23)<<left<<Nhaxuatban;
-    cout<<setw(16)<<left<<Giatien;
-    cout<<setw(15)<<left<<Soluong<<endl;
+    cout<<setw(16)<<left<<Giatien<<endl;
 }
 void Book::Timsach_ID(Book *a)
 {
@@ -117,16 +103,16 @@ void Book::Timsach_ID(Book *a)
                 cout<<setw(30)<<left<<"Tensach";
                 cout<<setw(30)<<left<<"Tentacgia";
                 cout<<setw(23)<<left<<"Nhaxuatban";
-                cout<<setw(16)<<left<<"Giatien";
-                cout<<setw(15)<<left<<"Soluong"<<endl;
+                cout<<setw(16)<<left<<"Giatien"<<endl;
                 title=1;
             }        
             a[i].display();
             found = true;
         }
     }
+    textcolor(12);
     if (!found)
-        cout << "Khong tim thay sach!";
+        cout << "Khong tim thay sach!";textcolor(7);
 }
 void Book::Timsach_Tensach(Book *a)
 {
@@ -144,16 +130,16 @@ void Book::Timsach_Tensach(Book *a)
                 cout<<setw(30)<<left<<"Tensach";
                 cout<<setw(30)<<left<<"Tentacgia";
                 cout<<setw(23)<<left<<"Nhaxuatban";
-                cout<<setw(16)<<left<<"Giatien";
-                cout<<setw(15)<<left<<"Soluong"<<endl;
+                cout<<setw(16)<<left<<"Giatien"<<endl;
                 title=1;
             }        
             a[i].display();
             found = true;
         }
     }
+    textcolor(12);
     if (!found)
-        cout << "Khong tim thay sach!" << endl;
+        cout << "Khong tim thay sach!" << endl;textcolor(7);
 }
 void Book::XemSach(Book *a){
     int n=getInfo(a);
@@ -161,15 +147,13 @@ void Book::XemSach(Book *a){
     cout<<setw(30)<<left<<"Tensach";
     cout<<setw(30)<<left<<"Tentacgia";
     cout<<setw(23)<<left<<"Nhaxuatban";
-    cout<<setw(16)<<left<<"Giatien";
-    cout<<setw(15)<<left<<"Soluong"<<endl;
+    cout<<setw(16)<<left<<"Giatien"<<endl;
     for (int i=0;i<n-1;i++){
     cout<<setw(10)<<left<<a[i].ID;
     cout<<setw(30)<<left<<a[i].Tensach;
     cout<<setw(30)<<left<<a[i].Tentacgia;
     cout<<setw(23)<<left<<a[i].Nhaxuatban;
-    cout<<setw(16)<<left<<a[i].Giatien;
-    cout<<setw(15)<<left<<a[i].Soluong<<endl;
+    cout<<setw(16)<<left<<a[i].Giatien<<endl;
     }
     cout<<endl;
 }
@@ -213,21 +197,23 @@ void Book::Sapxep(Book *a)
 }
 void Book::Themsach(Book *a)
 {
+    textcolor(7);
     Book x;
     ofstream Book("D:/Workspace/PBL2/Book/Booklist.txt",ios::app);
+    Goto(34, 4);
     if (Book.fail()) return;
     cout<<"*****************Them sach*****************\n";
     cin>>x;
     while(x.Checktontai(a)) //neu ton tai
     {
-        cout<<"ID hoac ten sach da ton tai, vui long nhap lai!";
+        textcolor(12);cout<<"ID hoac ten sach da ton tai, vui long nhap lai!";textcolor(7);
         getch();
         system("cls");
-        cout<<"*****************Them sach*****************\n";
+        Goto(34, 4);cout<<"*****************Them sach*****************\n";
         cin>>x;
     }
     Book<<x;
-    cout << "Them sach thanh cong!" << endl;
+    textcolor(10);cout << "Them sach thanh cong!" << endl;textcolor(7);
     getInfo(a);
     Book.close();
     Sapxep(a);
@@ -235,9 +221,10 @@ void Book::Themsach(Book *a)
 
 void Book::Xoasach_ID(Book *a)
 {
+    textcolor(7);
     string x;
     int n = getInfo(a), i, j;
-    cout<<"***************XOA SACH THEO ID *******************\n";
+    Goto(34, 4);cout<<"***************XOA SACH THEO ID *******************\n";
     ifstream Xoa("D:/Workspace/PBL2/Book/Booklist.txt");// doc file booklist
     ofstream Book("D:/Workspace/PBL2/Book/demo.txt",ofstream::out); // mo file temp
     bool found=false;
@@ -249,16 +236,16 @@ void Book::Xoasach_ID(Book *a)
             if(x==a[i].ID)
             {
                 found = true;
-                cout << "Xoa sach thanh cong!";
+                textcolor(10);cout << "Xoa sach thanh cong!";textcolor(7);
                 break;
             }
         }
         if(!found)
         {
-            cout << "Khong tim thay ID sach ban muon xoa! Hay nhap lai...";
+            textcolor(12);cout << "Khong tim thay ID sach ban muon xoa! Hay nhap lai...";textcolor(7);
             getch();
             system("cls");
-            cout<<"***************XOA SACH THEO ID*******************\n";
+            Goto(34, 4);cout<<"***************XOA SACH THEO ID*******************\n";
             cout<<"\nNhap ID sach ban muon xoa: "; cin>>x;
         }
     }
@@ -276,13 +263,16 @@ void Book::Xoasach_ID(Book *a)
 }
 void Book::Xoasach_Tensach(Book *a)
 {
+    textcolor(7);
     string x;
     int n = getInfo(a), i, j;
-    cout<<"***************XOA SACH THEO TEN*******************\n";
+    Goto(34, 4);cout<<"***************XOA SACH THEO TEN*******************\n";
     ifstream Xoa("D:/Workspace/PBL2/Book/Booklist.txt");// doc file booklist
     ofstream Book("D:/Workspace/PBL2/Book/demo.txt",ofstream::out); // mo file temp
     bool found=false;
-    cout<<"\nNhap ten sach ban muon xoa: "; cin>>x;
+    cout<<"\nNhap ten sach ban muon xoa: ";
+    fflush(stdin);
+    getline(cin,x);
     while(!found)
     {
         for(i=0;i<n-1;i++)
@@ -290,16 +280,16 @@ void Book::Xoasach_Tensach(Book *a)
             if(x==a[i].Tensach)
             {
                 found = true;
-                cout << "Xoa sach thanh cong!";
+                textcolor(10);cout << "Xoa sach thanh cong!";textcolor(7);
                 break;
             }
         }
         if(!found)
         {
-            cout << "Khong tim thay ten sach ban muon xoa! Hay nhap lai...";
+            textcolor(12);cout << "Khong tim thay ten sach ban muon xoa! Hay nhap lai...";textcolor(7);
             getch();
             system("cls");
-            cout<<"***************XOA SACH THEO ID *******************\n";
+            Goto(34, 4);cout<<"***************XOA SACH THEO TEN *******************\n";
             cout<<"\nNhap ten sach ban muon xoa: "; cin>>x;
         }
     }

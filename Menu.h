@@ -2,6 +2,7 @@
 #define MENU_H
 #include "Nguoiquanly.h"
 #include "Sinhvien.h"
+#include "Dohoa.h"
 #include <iostream>
 using namespace std;
 class Menu: public Nguoiquanly, public Sinhvien
@@ -13,5 +14,4 @@ class Menu: public Nguoiquanly, public Sinhvien
         ~Menu(){}
         void menu();
 };
-
 #endif

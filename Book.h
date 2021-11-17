@@ -20,7 +20,6 @@ class Book{
 		string Tentacgia;
 		string Nhaxuatban;
 		int Giatien;
-		int Soluong;
 	public:
         Book();
         ~Book();
@@ -28,9 +27,7 @@ class Book{
 		string getTensach();
 		string getTentacgia();
 		string getNhaxuatban();
-		void setSoluong(int);
 		int getGiatien();
-		int getSoluong();
 		int getInfo(Book *);
 		void display();
         void XemSach(Book *);

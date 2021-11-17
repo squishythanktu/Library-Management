@@ -3,64 +3,63 @@ Hugo
 100 Banana
 NXB Kim Dong
 20000
-10
 2
 Target Toeic
 Anne Taylor
 NXB Tre
 142000
-48
 3
 Gio qua rang lieu
 Kenneth
 NXB Tre
 50000
-45
 4
-100 bai code thieu nhi
-Nguyen Van Lang
-NXB Thoi dai 
+Le Petit Prince
+Antoine de Saint-Exupery
+NXB Nha Nam
 56000
-10
 5
 The gioi quanh ta
 Hoang Luan
 NXB Thoi dai
 40000
-15
 6
 Dac nhan tam
 Dale Carnegie
 NXB Gioi tre
 120000
-10
 7
 Toi ac va trung phat
 Dostoevsky
 NXB Kim Dong
 70000
-5
 8
 Bat tre dong xanh
 J.D.Salinger
 NXB Kim dong
 60000
 9
+Meitantei Conan
+Aoyama Gosho
+NXB Kim Dong
+20000
+10
+C‚dric
+Laudec & Cauvin
+NXB Nha Nam
+60000
 11
 Thang nam troi qua nhanh qua
 Nguyen Minh Suong
 NXB Kim Dong
 20000
-10
 12
 Ngoi nha nho
 Bang Huu
 NXB bui van
 40000
-10
-14
-Hoa hong gai
-Le Khoi
-NXB Ba Chu
-400000
-25
+16
+Vat li 2
+Nam Bac
+NXB Thoi Dai
+50000

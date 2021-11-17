@@ -1,6 +1,7 @@
 #ifndef NGUOIQUANLY_H
 #define NGUOIQUANLY_H
 #include "Book.h"
+#include "Phieumuon.h"
 #include<iostream>
 #include<stdio.h>
 #include<stdlib.h>

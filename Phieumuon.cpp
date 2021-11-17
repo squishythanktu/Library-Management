@@ -17,14 +17,6 @@ Phieumuon::~Phieumuon()
     delete [] Tensach;
     delete [] Sosach;
 }
-// bool isNumber(const string& str) //hàm check một chuỗi có phải số không
-// {
-//     int i=0;
-//     for (char c=str[0]; c!='\0'; c=str[++i]) {
-//         if (isdigit(c) == 0) return false;
-//     }
-//     return true;
-// }
 istream& operator >>(istream &in,Phieumuon &pm)
 {
     Book *book = new Book[100];
@@ -32,7 +24,7 @@ istream& operator >>(istream &in,Phieumuon &pm)
     bool found = false;
     ifstream file("D:/Workspace/PBL2/Book/Booklist.txt");
     if(!file){
-        cout << "Khong mo duoc file" << endl;
+        cout << "Khong mo duoc file!" << endl;
         return in;
     }
     Input: 
@@ -47,12 +39,8 @@ istream& operator >>(istream &in,Phieumuon &pm)
         {
             if(book[i].getTensach() == pm.Tensach[tongsach])
             {
-                //tìm đc sách -> kiểm tra số lượng sách
-                if(book[i].getSoluong() >= pm.Sosach[tongsach] && pm.Sosach[tongsach] > 0)
-                {
                     found = true;
                     break;
-                }
             }
         }
         if(!found)
@@ -67,25 +55,11 @@ istream& operator >>(istream &in,Phieumuon &pm)
             {
                 //thông tin hợp lệ
                 cout << "Muon sach thanh cong!" << endl;
-                book[i].setSoluong(book[i].getSoluong() - pm.Sosach[tongsach]); //cập nhật số lượng sách trong thư viện
                 break;
             }
     }
-    //cập nhật lại file
-    ofstream temp("D:/Workspace/PBL2/Book/Booklist_temp.txt");
-    if(!temp){
-        cout << "Khong mo duoc file" << endl;
-        return in;
-    }
-    for(int i = 0; i < n-1; i++)
-    {
-        temp << book[i];
-    }
-    temp.close();
     file.close();
     delete [] book;
-    remove("D:/Workspace/PBL2/Book/Booklist.txt");
-    rename("D:/Workspace/PBL2/Book/Booklist_temp.txt", "D:/Workspace/PBL2/Book/Booklist.txt");
     tongsach++;
     return in;
 }
@@ -94,7 +68,7 @@ ostream& operator <<(ostream &out,const Phieumuon &pm){
     out << "Ma sinh vien: " << pm.Masv << endl;
     out << "Ngay muon sach: " << pm.Ngaymuon << endl;
     out << setw(30) << left << "Ten sach" << setw(30) << left << "So luong" << endl;
-    for(int i=0;i<tongsach;i++){
+    for(int i = 0; i < tongsach; i++){
         out << setw(30) << left << pm.Tensach[i] << setw(30) << left << pm.Sosach[i] << endl;
     }
     return out;
@@ -106,13 +80,13 @@ bool Phieumuon::checkMamuon()
     ifstream fileout(temp.c_str());
     if(fileout) //đã rồn rại
     {
-        return false;
         fileout.close();
+        return false;
     }
     else
     {
-        return true;
         fileout.close();
+        return true;
     }
 }
 void Phieumuon::Muonsach(Phieumuon &pm)
@@ -128,7 +102,7 @@ void Phieumuon::Muonsach(Phieumuon &pm)
     //mã sv và thời gian được nhập tự động
     cin >> pm; //nhập thông tin sách
     //mượn thêm sách khác
-      Muonthem:
+    Muonthem:
       {
             cout << "Muon them sach khac? (Y/N): ";
             char c;
@@ -153,4 +127,113 @@ void Phieumuon::Muonsach(Phieumuon &pm)
     ofstream List("D:/Workspace/PBL2/Phieumuon/Phieumuon_list.txt",ios::app);
     List << pm.Mamuon << endl;
     List.close(); 
+}
+void Phieumuon::print(const string &path)
+{
+    ifstream in(path.c_str());
+    string line;
+    while (getline(in,line))
+    {
+        cout << line << endl;
+    }
+    in.close();
+}
+void Phieumuon::Trasach(Phieumuon &pm)
+{
+    cout << "************ TRA SACH ************" << endl;
+    cout << "Nhap ma phieu muon: ";
+    string mapm;
+    fflush(stdin);
+    getline(cin,mapm);
+    string temp="D:/Workspace/PBL2/Phieumuon/"+mapm+".txt";
+    ifstream filein(temp.c_str());
+    if(!filein)
+    {
+        cout << "Phieu muon khong ton tai! Hay nhap lai..." << endl;
+        filein.close();
+        getch();
+        system("cls");
+        Trasach(pm);
+    }
+    char mamuon_temp[100], masinhvien_temp[100];
+    filein.getline(mamuon_temp,100);
+    filein.getline(masinhvien_temp,100);
+    if(masinhvien_temp == "Ma sinh vien: " + pm.Masv) //đúng phiếu mượn của sinh viên 
+    {
+        filein.close();
+        //in thông tin phiếu mượn
+        print(temp);
+        Ask:
+        {
+            cout << "\nBan co chac chan muon tra sach?" << endl;
+            cout << "1.Co" << endl;
+            cout << "2.Khong" << endl;
+            cout << "Nhap lua chon cua ban: ";
+            string choice;
+            fflush(stdin);
+            getline(cin,choice);
+            if(choice == "1")
+            {   //xóa phiếu mượn và mã phiếu mượn trong list
+                remove(temp.c_str());
+                ifstream List("D:/Workspace/PBL2/Phieumuon/Phieumuon_list.txt");
+                ofstream Temp("D:/Workspace/PBL2/Phieumuon/Phieumuon_list_temp.txt",ios::app);
+                string line;
+                while(getline(List,line))
+                {
+                    if(line != mapm)
+                    {
+                        Temp << line << endl;
+                    }
+                }
+                Temp.close();
+                List.close();
+                remove("D:/Workspace/PBL2/Phieumuon/Phieumuon_list.txt");
+                rename("D:/Workspace/PBL2/Phieumuon/Phieumuon_list_temp.txt","D:/Workspace/PBL2/Phieumuon/Phieumuon_list.txt");
+                cout << "Tra sach thanh cong!" << endl;
+            }
+            else if(choice == "2")
+            {
+                cout << "Ket thuc tra sach!" << endl;
+                filein.close();
+                return;
+            }
+            else
+            {
+                cout << "Lua chon khong hop le! Hay nhap lai..." << endl;
+                goto Ask;
+            }
+        }
+    }
+    else
+    {
+        cout<<"Ma muon nay khong phai cua ban! Hay nhap lai...";
+        filein.close();
+        getch();
+        system("cls");
+        Trasach(pm);
+    }
+}
+void Phieumuon::xem_phieumuon()
+{
+    cout << "************ XEM PHIEU MUON ************" << endl;
+    cout << "DANH SACH PHIEU MUON" << endl;
+    print("D:/Workspace/PBL2/Phieumuon/Phieumuon_list.txt");
+    cout << "Nhap ma phieu muon: ";
+    string mapm;
+    fflush(stdin);
+    getline(cin,mapm);
+    string temp="D:/Workspace/PBL2/Phieumuon/"+mapm+".txt";
+    ifstream filein(temp.c_str());
+    if(!filein)
+    {
+        cout << "Phieu muon khong ton tai! Hay nhap lai..." << endl;
+        filein.close();
+        getch();
+        system("cls");
+        xem_phieumuon();
+    }
+    else{
+        print(temp);
+        filein.close();
+    }
 }

@@ -1,7 +1,7 @@
 Ma muon: PM001
 Ma sinh vien: 102200181
-Ngay muon sach: Wed Nov 17 05:55:01 2021
+Ngay muon sach: Wed Dec 15 17:13:37 2021
 
-Ten sach                      So luong                      
-Vat li 2                      3                             
-Dac nhan tam                  2                             
+Ten sach                      Ten tac gia                   So luong                      
+Doi tho                       Richard Adams                 1                             
+The gioi quanh ta             Hoang Luan                    1                             

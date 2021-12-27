@@ -20,6 +20,7 @@ class Book{
 		string Tentacgia;
 		string Nhaxuatban;
 		int Giatien;
+		int Soluong;
 	public:
         Book();
         ~Book();
@@ -27,15 +28,16 @@ class Book{
 		string getTensach();
 		string getTentacgia();
 		string getNhaxuatban();
+		void setSoluong(int);
 		int getGiatien();
+		int getSoluong();
 		int getInfo(Book *);
 		void display();
         void XemSach(Book *);
 		void Timsach_ID(Book *);
 		void Timsach_Tensach(Book *);
 		void Themsach(Book *);
-    	void Xoasach_ID(Book *);
-		void Xoasach_Tensach(Book *);
+    	void Xoasach(Book *);
 		bool Checktontai(Book *);
 		void Sapxep(Book *);
 		friend istream& operator >>(istream &in,Book &a);

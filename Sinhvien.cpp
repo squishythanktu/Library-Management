@@ -40,11 +40,13 @@ string Sinhvien::convert_pass(string &pass)
 }
 void Sinhvien::DangXuat()
 {
-    cout << "************ SINH VIEN DANG XUAT ************" << endl;
-    cout << "Ban chac chan muon dang xuat? " << endl;
-    cout << "1. Co" << endl;
-    cout << "2. Khong" << endl;
-    cout << "Nhap lua chon cua ban: ";
+    textcolor(6);
+    Goto(41,3);
+    cout << "************ SINH VIEN DANG XUAT ************" << endl;textcolor(7);
+    Goto(45,4);cout << "Ban chac chan muon dang xuat? " << endl;
+       Goto(45,5);cout << "1. Co" << endl;
+       Goto(45,6);cout << "2. Khong" << endl;
+       Goto(45,7);cout << "Nhap lua chon cua ban: ";
     string n;
     cin >> n;
     if(n.length()>1)
@@ -59,8 +61,8 @@ void Sinhvien::DangXuat()
     {
         case '1':
         {
-            textcolor(2);
-            cout << "Ban da dang xuat thanh cong!" << endl;
+            textcolor(10);
+            Goto(41,8);cout << "Ban da dang xuat thanh cong!" << endl;
             getch();
             system("cls");
             textcolor(7);
@@ -71,14 +73,13 @@ void Sinhvien::DangXuat()
         case '2':
         {
             system("cls");
-            back_sv();
+            menu_sv();
             break;
         }
         default:
         {
-            system("cls");
-            textcolor(4);
-            cout << "Lua chon khong hop le. Hay nhap lai...";
+            textcolor(12);
+            Goto(41,8);cout << "Lua chon khong hop le. Hay nhap lai...";
             getch();
             system("cls");
             textcolor(7);
@@ -145,7 +146,7 @@ void Sinhvien::menu_sv()
     Goto(34,23);
     cout<<"Nhap lua chon cua ban:           \t";
     string n; 
-    Goto(56,23);cin >> n;
+    Goto(57,23);cin >> n;
     textcolor(12);Goto(34,25);
     if(n.length()>1)
     {
@@ -206,7 +207,8 @@ void Sinhvien::menu_sv()
             ThayDoiMatKhau();
             getch();
             system("cls");
-            back_sv();
+            Menu temp;
+            temp.menu();
             break;
         }
         case '6':
@@ -239,9 +241,9 @@ void Sinhvien::pass_sv()
     string line = " ";
     ifstream readFile("D:/Workspace/PBL2/pass/pass_sv.txt");
     string _UserName, _Password;
-    Goto(34, 3);
+    Goto(53, 3);
     textcolor(6);
-    cout << "\t        -SINH VIEN DANG NHAP-     \t"<<endl;
+    cout << "-SINH VIEN DANG NHAP-"<<endl;
     textcolor(7);
     Goto(34,5);cout<<"*";
     for(int i=0;i<58;i++)
@@ -265,7 +267,7 @@ void Sinhvien::pass_sv()
     }
     cout<<"*";
     Goto(41,6);cout << "Ma sinh vien: ";
-    Goto(56,6);cin >> this->Msv;
+    Goto(55,6);cin >> this->Msv;
     Goto(41,8);cout << "Mat khau: ";
     convert_pass(this->Mk); //nhập mật khẩu và chuyển thành dãy ***
     bool found = false;
@@ -283,7 +285,7 @@ void Sinhvien::pass_sv()
         }
     }
     if (!found) { //Dang nhap that bai
-        textcolor(12);Goto(41,11);cout << "Ma sinh vien hoac mat khau khong dung. Hay thu lai....."<< endl;textcolor(7);
+        textcolor(12);Goto(41,11);cout << "Ma sinh vien hoac mat khau khong dung. Hay thu lai..."<< endl; textcolor(7);
         getch();
         system("cls");
         pass_sv();
@@ -292,36 +294,34 @@ void Sinhvien::pass_sv()
 }
 void Sinhvien::back_sv()
 {
-    int a;
-    Goto(34, 3);
-    cout << "\n\t----------Ban muon lam gi?----------------";
-	cout << "\n\t1.Quay lai menu sv ";
-	cout << "\n\t2.Dong ung dung";
-    cout << "\n\t------------------------------------------";
-    cout << "\n\tNhap lua chon cua ban: "; 
-    cin >> a;
-    switch (a)
-    {
-    case 1:
+    string a;
+    Goto(41,5);
+    cout << "----------Ban muon lam gi?----------";
+	Goto(45,6);cout << "1.Quay lai menu sv";
+	Goto(45,7);cout << "2.Dong ung dung";
+    Goto(41,8);cout << "------------------------------------";
+    Goto(45,9);cout << "Nhap lua chon cua ban: "; 
+     fflush(stdin);
+    getline(cin,a);
+    if(strcmp(a.c_str(),"1")==0){
         system("cls");
         menu_sv();
-        break;
-    case 2:
+    }
+    else if(strcmp(a.c_str(),"2")==0){
         exit(0);
-        break;
-    default:
-        textcolor(12);cout << "Hay nhap lua chon dung!";textcolor(7);
+    }
+    else{
+        textcolor(12);Goto(45,10);cout << "Hay nhap lua chon dung!";textcolor(7);
         getch();
         system("cls");
         back_sv();
-        break;
     }
 }
 void Sinhvien::menu_timsach()
 {   
     Goto(34, 4);
     textcolor(6);
-    cout << "                    -MENU TIM SACH-           ";
+    cout << "                       -MENU TIM SACH-           ";
     textcolor(7);
     Goto(34,5);cout<<"*";
     for(int i=0;i<58;i++)
@@ -354,7 +354,7 @@ void Sinhvien::menu_timsach()
     Goto(34,15);
     cout<<"Nhap lua chon cua ban:           \t";
     string n;
-    Goto(56,15);cin >> n; 
+    Goto(57,15);cin >> n; 
     textcolor(12);
     if(n.length()>1)
     {
@@ -389,12 +389,12 @@ void Sinhvien::menu_timsach()
     case '3':
         {
             system("cls");
-            back_sv();
+            menu_sv();
             break;
         }
     default:
         {
-            cout << "Lua chon khong hop le! Hay nhap lai...";
+            textcolor(12);Goto(34,16);cout << "Lua chon khong hop le! Hay nhap lai...";textcolor(7);
             getch();
             system("cls");
             menu_timsach();
@@ -406,15 +406,15 @@ void Sinhvien::ThayDoiMatKhau()
 {
     string mk_hientai, mk_moi, mk_nhaplai, _Password, _Username, user[100], pass[100];
     int n=0;
-    Goto(0, 3);
+    Goto(40, 3);
     textcolor(6);
-    cout << "\t-----------THAY DOI MAT KHAU SINH VIEN---------\t" << endl;textcolor(7);
-    Goto(0, 5);cout << "Nhap mat khau hien tai: ";
+    cout << "-------THAY DOI MAT KHAU SINH VIEN-------" << endl;textcolor(7);
+    Goto(40, 5); cout << "Nhap mat khau hien tai: ";
     convert_pass(mk_hientai);
     if (mk_hientai==this->Mk){
-            cout<<"\nNhap mat khau moi: ";
+            Goto(40, 6); cout<<"Nhap mat khau moi: ";
             convert_pass(mk_moi);
-             cout<<"\nNhap lai mat khau moi: ";
+            Goto(40, 7); cout<<"Nhap lai mat khau moi: ";
             convert_pass(mk_nhaplai);
             if (mk_moi==mk_nhaplai){
                 ifstream in("D:/Workspace/PBL2/pass/pass_sv.txt");
@@ -436,18 +436,18 @@ void Sinhvien::ThayDoiMatKhau()
                     out << user[i] << " " << pass[i] << endl;
                 }
                 out.close();
-                textcolor(10);cout << "\nThay doi mat khau thanh cong! Moi ban dang xuat va dang nhap lai"; textcolor(7);
+                textcolor(10);cout << "\n                                        Thay doi mat khau thanh cong! Moi ban dang xuat va dang nhap lai!"; textcolor(7);
                 
             }
             else{
-                textcolor(12);cout<<"\nMat khau nhap lai khong dung. Hay nhap lai...";textcolor(7);
+                textcolor(12);cout<<"\n                                        Mat khau nhap lai khong dung. Hay nhap lai...";textcolor(7);
                 getch();
                 system("cls");
                 ThayDoiMatKhau();
             }
     }
     else{
-        textcolor(12);cout<<"\nMat khau hien tai khong dung. Hay nhap lai...";textcolor(7);
+        textcolor(12);cout<<"\n                                        Mat khau hien tai khong dung. Hay nhap lai...";textcolor(7);
         getch();
         system("cls");
         ThayDoiMatKhau();      

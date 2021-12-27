@@ -25,7 +25,6 @@ class Nguoiquanly{
 		void pass_ql();
 		void back_ql();
 		void menu_timsach();
-		void menu_xoasach();
 		void menu_dieuchinh();
 		void ThayDoiMatKhau();
 		void DangXuat();

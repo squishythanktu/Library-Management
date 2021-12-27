@@ -1,65 +1,85 @@
 1
-Hugo
-100 Banana
-NXB Kim Dong
-20000
+Doi tho
+Richard Adams
+NXB Hoang Nam
+50000
 2
+Python co ban
+Bui Viet Ha
+NXB DHQG Ha Noi
+125000
+3
+Buoi hoc cuoi cung
+Alphonoes Daudet
+NXB Tre
+40000
+4
+The gioi quanh ta
+Hoang Luan
+NXB Thoi Dai
+40000
+5
+Sherlock Holmes
+Arthur Conan Doyle
+NXB Van Hoc
+120000
+7
+Bat tre dong xanh
+J.D.Salinger
+NXB Kim Dong
+60000
+8
+Ngoi nha nho
+Bang Huu
+NXB Bui Van
+40000
+9
+Vat li 1
+Hao Nam
+NXB Khoa Hoc
+40000
+10
+Vat li 2
+Hao Nam
+NXB Khoa Hoc
+40000
+11
+Giai tich 1
+Hoai Phuong
+NXB Khoa Hoc
+50000
+14
+Hoang tu be
+Antoine
+NXB Nhi Dong
+50000
+15
 Target Toeic
 Anne Taylor
 NXB Tre
 142000
-3
-Gio qua rang lieu
-Kenneth
-NXB Tre
+16
+Do hoa may tinh
+Phan Thanh Tao
+NXB Giao Duc VN
+90000
+17
+Cong nghe sinh hoc duoc
+Nguyen Van Thanh
+NXB Giao Duc VN
 50000
-4
-Le Petit Prince
-Antoine de Saint-Exupery
-NXB Nha Nam
-56000
-5
-The gioi quanh ta
-Hoang Luan
-NXB Thoi dai
-40000
-6
-Dac nhan tam
-Dale Carnegie
-NXB Gioi tre
-120000
-7
-Toi ac va trung phat
-Dostoevsky
-NXB Kim Dong
-70000
-8
-Bat tre dong xanh
-J.D.Salinger
-NXB Kim dong
-60000
-9
-Meitantei Conan
-Aoyama Gosho
-NXB Kim Dong
-20000
-10
-C‚dric
+18
+Ceric
 Laudec & Cauvin
 NXB Nha Nam
-60000
-11
-Thang nam troi qua nhanh qua
-Nguyen Minh Suong
-NXB Kim Dong
-20000
-12
-Ngoi nha nho
-Bang Huu
-NXB bui van
-40000
-16
-Vat li 2
-Nam Bac
-NXB Thoi Dai
-50000
+65000
+19
+Nhoc Nicolas
+Rene Goscinny
+NXB Nha Nam
+70000
+20
+Head First Java
+Kathy Sierra, Bert Bates
+NXB O'reilly
+140000

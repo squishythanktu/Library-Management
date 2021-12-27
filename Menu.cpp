@@ -5,9 +5,9 @@ void Menu::menu()
 { 
     fflush(stdin);
      int i;
-    Goto(34, 3);
+    Goto(51, 3);
     textcolor(6);
-    cout << "\t        -HE THONG QUAN LY THU VIEN-     \t";
+    cout << "-HE THONG QUAN LY THU VIEN-";
     textcolor(7);
     Goto(34,5);cout<<"*";
     for(int i=0;i<58;i++)
@@ -40,7 +40,7 @@ void Menu::menu()
     Goto(34,16);
     cout<<"Vui long chon phuong thuc dang nhap:           \t";
     string n;
-    Goto(70,16);
+    Goto(71,16);
     cin>>n;
     if(n.length()>1)
     {
@@ -76,7 +76,7 @@ void Menu::menu()
         default:
         {
             textcolor(4);
-            Goto(24,17);cout<<"Hay chon tu cach dang nhap dung!";
+            Goto(34,17);cout<<"Hay chon tu cach dang nhap dung!";
             getch();
             getch();
             system("cls");
